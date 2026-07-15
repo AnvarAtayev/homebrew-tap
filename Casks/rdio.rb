@@ -1,11 +1,10 @@
 cask "rdio" do
-  arch arm: "arm64", intel: "x86_64"
+  # Rdio ships a single universal build; the SHA-256 is printed in each
+  # release's summary (or run `brew bump-cask-pr rdio` to update both fields).
+  version "0.1.3"
+  sha256 "18ce590f9c291f35e43d7f5462a0bfb589cba9efd7cc63ff0a50779f2665ee64"
 
-  version "0.1.1"
-  sha256 arm:   "14c041c6aba0736c5d65e118f149502b1ea44c4caa7e8c60bb185d44609e9fea",
-         intel: "4bd7210a427f399db799c920b3b5160ce6f800a30986753b529c3d243951f403"
-
-  url "https://github.com/AnvarAtayev/rdio/releases/download/v#{version}/Rdio-#{version}-#{arch}.zip"
+  url "https://github.com/AnvarAtayev/rdio/releases/download/v#{version}/Rdio-#{version}.zip"
   name "Rdio"
   desc "Tiny menu bar radio player"
   homepage "https://github.com/AnvarAtayev/rdio"
