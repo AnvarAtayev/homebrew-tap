@@ -24,4 +24,16 @@ cask "rdio" do
     "~/Library/Preferences/dev.anvar.rdio.plist",
     "~/Library/Saved Application State/dev.anvar.rdio.savedState",
   ]
+
+  caveats <<~EOS
+    Rdio is ad-hoc signed and not notarized, so on first launch macOS Gatekeeper
+    blocks it with "Apple could not verify Rdio is free of malware". This is
+    expected. To open it, either:
+
+      - Open System Settings -> Privacy & Security and click "Open Anyway"
+        next to the Rdio message, or
+      - Remove the quarantine flag:
+
+          xattr -d com.apple.quarantine "#{appdir}/Rdio.app"
+  EOS
 end
